@@ -8,7 +8,7 @@ CURRENT_PWD="$(pwd)"
 CURRENT_SHELL="$SHELL"
 SELF="$(basename $0)"
 TTY_BACKUP=""
-VERSION="1.5"
+VERSION="1.6.1"
 
 function check_self() {
     case "$SELF" in
@@ -25,16 +25,16 @@ function die() {
 function check_su() {
     local su="$1"
     if [[ ! -x "$su" ]]; then
-        die "No su binary found, (searched ${SU_LOCATIONS[@]})"
+        die "su 二进制文件没有找到, (searched ${SU_LOCATIONS[@]})"
     fi
 }
 
 function print_version() {
-    echo "$SELF: su wrapper for NeoTerm, version $VERSION"
+    echo "$SELF: su wrapper for NeoTerm-Extra, version $VERSION"
     
     local su="$(find_su_binary)"
     check_su "$su"
-    echo "$su: su binary, version $(call_su --version)"
+    echo "$su: su 二进制文件, 版本 $(call_su --version)"
 }
 
 function find_su_binary() {
@@ -94,7 +94,7 @@ function main() {
 }
 
 function su_help() {
-    echo "Usage: su [-] [-l|--login] [-c commands]"
+    echo "用法: su [-] [-l|--login] [-c commands]"
 }
 
 function su_main() {
@@ -126,7 +126,7 @@ function su_main() {
 }
 
 function sudo_help() {
-    echo "Usage: sudo <commands> [args]"
+    echo "用法: sudo <命令> [args]"
 }
 
 function sudo_main() {
