@@ -1,2 +1,2 @@
 # neoterm-root-access-support
-Root access support for NeoTerm
+Root 二进制 for NeoTerm-Extra
